@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- sql mapper   -->  
+<mapper namespace="freeboard"> <!-- namespace : 일종의 식별역할의 변수 -->
+	
+	<select id="getList" resultType="dto.Freeboard" parameterType="java.util.Map">
+		select * from freeboard order by idx desc limit #{startNo},#{pageSize}
+	</select>
+	
+	<select id="selectByIdx" resultType="dto.Freeboard" parameterType="int">
+		select * from freeboard where idx=#{idx}
+	</select>
+	
+	<select id="getCount" resultType="int" >
+		select count(*) from freeboard
+	</select>
+	
+	<insert id="insert" parameterType="dto.Freeboard">
+		insert into freeboard(name,password,subject,content,ip)
+		values (#{name},#{password},#{subject},#{content},#{ip})
+	</insert>
+	
+	<update id="update" parameterType="dto.Freeboard">
+		update freeboard set subject=#{subject}, content=#{content} where idx=#{idx}
+	</update>
+	
+	<delete id="delete" parameterType="java.util.Map">
+		delete from freeboard where idx=#{idx} and password=#{password}
+	</delete>
+	
+	<select id="passwordCheck" resultType="dto.Freeboard" parameterType="java.util.Map">
+		select * from freefoard where idx=#{idx} and password=#{password}
+	</select>
+	
+	<update id="readCount" parameterType="int">
+		update freeboard set readCount = readCount+1 where idx=#{idx}
+	</update>
+	
+	
+	<select id="loginCheck" parameterType="java.util.Map" resultType="dto.SessionDto">
+		select * from customer where email=#{email} and password=#{password}
+	</select>
+	
+</mapper>
