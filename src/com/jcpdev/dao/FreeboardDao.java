@@ -24,6 +24,7 @@ public class FreeboardDao {
 		List<Freeboard> list = null;
 		SqlSession mapper = factory.openSession();
 		list = mapper.selectList("getList",map);
+		mapper.close();
 		return list;
 	}
 	
@@ -65,7 +66,7 @@ public class FreeboardDao {
 		return n;
 	}
 	
-	public Freeboard passwordCheck(Map map) {
+	public Freeboard passwordCheck(Map<String, Object> map) {
 		SqlSession mapper = factory.openSession();
 		Freeboard dto = mapper.selectOne("passwordCheck", map);  
 		mapper.close();

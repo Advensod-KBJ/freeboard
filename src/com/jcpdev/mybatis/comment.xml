@@ -4,11 +4,11 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- sql mapper   -->  
 <mapper namespace="comment">
-	<insert id="insert" parameterType="dto.Comment">
+	<insert id="insert" parameterType="Comment">
 		insert into board_comment(mref,name,password,content,ip)
 		values (#{mref},#{name},#{password},#{content},#{ip})
 	</insert>
-	<select id="getComments" parameterType="int" resultType="dto.Comment">
+	<select id="getComments" parameterType="int" resultType="Comment">
 		select * from board_comment where mref = #{mref}
 	</select>
 	<!-- 댓글추가/삭제에 모두 적용할 수 있습니다. -->

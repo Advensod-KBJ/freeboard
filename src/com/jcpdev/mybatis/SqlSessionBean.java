@@ -15,7 +15,7 @@ public class SqlSessionBean {
  */
 	public static SqlSessionFactory sqlSessionFactory;
 	static {   //변수들이 static 영역에 저장됩니다.
-		String resource = "mybatis/mybatis-config.xml";    //mybatis 설정파일
+		String resource = "com/jcpdev/mybatis/mybatis-config.xml";    //mybatis 설정파일
 		InputStream inputStream=null;			//파일을 읽기위한 입력 스트림
 	
 	

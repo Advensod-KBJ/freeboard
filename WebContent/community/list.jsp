@@ -7,7 +7,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>동아리 커뮤니티</title>
-<link rel="stylesheet" href="../css/boardlist.css?v=3">
+<!-- url 경로가 freeboard community 아님 -->
+<link rel="stylesheet" href="css/boardlist.css?v=3">
 </head>
 <body>
 <h3>동아리 커뮤니티</h3>
@@ -28,7 +29,7 @@
 	<li>
 	<ul  class="row">
 		<li>${vo.idx }</li>
-		<li><a href="detailAction.jsp?idx=${vo.idx}&page=${pno}" class="title">${vo.subject }</a>
+		<li><a href="detail.do?idx=${vo.idx}&page=${pno}" class="title">${vo.subject }</a>
 	 		...<span style="color:orange;font-size: 80%;">(${vo.commentCount })
 	 		</span></li>
 		<li>${vo.name }</li>
@@ -50,7 +51,7 @@
  	</c:forEach>
 </ul>
 <div style="margin:auto;">
- 	Go!<a class="button" href="insertView.jsp">글쓰기</a>&nbsp;&nbsp;
+ 	Go!<a class="button" href="insert.do">글쓰기</a>&nbsp;&nbsp;
  	<a class="button" href="${pageContext.request.contextPath }">홈 : ${pageContext.request.contextPath }
  	</a>&nbsp;&nbsp;&nbsp;작성글 총 개수 : ${pageDto.totalCount }
 </div>
